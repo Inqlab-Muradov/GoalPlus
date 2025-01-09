@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="matchesItem"
+            type="com.example.goalplus.domain.model.MatchesModel" />
+    </data>
+
+<com.google.android.material.card.MaterialCardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="0dp"
+    app:strokeWidth="0dp"
+   >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/darkMode">
+
+            <ImageView
+                load_image_url="@{matchesItem.homeTeam.crest}"
+                android:id="@+id/homeTeamImg"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/homeTeamNameTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@{matchesItem.homeTeam.shortName}"
+                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/urbanistfont"
+                app:layout_constraintBottom_toBottomOf="@+id/homeTeamImg"
+                app:layout_constraintStart_toEndOf="@+id/homeTeamImg"
+                app:layout_constraintTop_toTopOf="@+id/homeTeamImg" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/scoresCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/darkMode"
+                app:cardCornerRadius="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/awayTeamImg"
+                app:layout_constraintStart_toEndOf="@id/homeTeamImg"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeWidth="0dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/homeTeamScore"
+                        load_score="@{matchesItem.score.fullTime.home}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="4dp"
+                        android:fontFamily="@font/urbanistfont"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/awayTeamScore"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/awayTeamScore"
+                        load_score="@{matchesItem.score.fullTime.away}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:fontFamily="@font/urbanistfont"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/homeTeamScore"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+
+            <ImageView
+                load_image_url="@{matchesItem.awayTeam.crest}"
+                android:id="@+id/awayTeamImg"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+
+            <TextView
+                android:id="@+id/awayTeamNameTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="@{matchesItem.awayTeam.shortName}"
+                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/urbanistfont"
+                app:layout_constraintBottom_toBottomOf="@+id/awayTeamImg"
+                app:layout_constraintEnd_toStartOf="@+id/awayTeamImg"
+                app:layout_constraintTop_toTopOf="@+id/awayTeamImg" />
+
+
+            <TextView
+                android:id="@+id/dateTxt"
+                txt_visibility="@{matchesItem.score.fullTime.home}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/urbanistfont"
+                android:text="@{matchesItem.utcDate.substring(11,16)}"
+                android:layout_margin="10dp"
+                android:textColor="#41cab5"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/awayTeamImg"
+                app:layout_constraintStart_toEndOf="@id/homeTeamImg"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

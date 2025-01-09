@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="tableItem"
+            type="com.example.goalplus.domain.model.MatchesTableModel" />
+    </data>
+
+
+<com.google.android.material.card.MaterialCardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/darkMode"
+    app:cardCornerRadius="0dp"
+    app:strokeWidth="0dp"
+    >
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/placesTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/urbanistfont"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:text="@{tableItem.position.toString()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="3dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/gradient_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/placesTxt"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/teamLogo"
+            load_image_url="@{tableItem.team.crest}"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:scaleType="fitXY"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/view"
+            app:layout_constraintStart_toEndOf="@+id/view"
+            app:layout_constraintTop_toTopOf="@+id/view"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/teamName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@{tableItem.team.shortName}"
+            android:fontFamily="@font/urbanistfont"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/teamLogo"
+            app:layout_constraintStart_toEndOf="@+id/teamLogo"
+            app:layout_constraintTop_toTopOf="@+id/teamLogo" />
+
+        <TextView
+            android:id="@+id/playedGamesTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/urbanistfont"
+            android:text="@{tableItem.playedGames.toString()}"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/wonTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@{tableItem.won.toString()}"
+            android:textColor="@color/tableGreen"
+            android:fontFamily="@font/urbanistfont"
+            app:layout_constraintBottom_toBottomOf="@+id/playedGamesTxt"
+            app:layout_constraintStart_toEndOf="@+id/playedGamesTxt"
+            app:layout_constraintTop_toTopOf="@+id/playedGamesTxt" />
+
+        <TextView
+            android:id="@+id/drawTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@{tableItem.draw.toString()}"
+            android:fontFamily="@font/urbanistfont"
+            android:textColor="@color/tableBlue"
+            app:layout_constraintBottom_toBottomOf="@+id/wonTxt"
+            app:layout_constraintStart_toEndOf="@+id/wonTxt"
+            app:layout_constraintTop_toTopOf="@+id/wonTxt" />
+
+        <TextView
+            android:id="@+id/lostTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@{tableItem.lost.toString()}"
+            android:fontFamily="@font/urbanistfont"
+            android:textColor="@color/tableRed"
+            app:layout_constraintBottom_toBottomOf="@+id/drawTxt"
+            app:layout_constraintStart_toEndOf="@+id/drawTxt"
+            app:layout_constraintTop_toTopOf="@+id/drawTxt" />
+
+        <TextView
+            android:id="@+id/goalsTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/urbanistfont"
+            android:text="@{tableItem.goalsFor.toString()}"
+            android:textColor="@color/tableOrange"
+            app:layout_constraintBottom_toBottomOf="@+id/lostTxt"
+            app:layout_constraintStart_toEndOf="@+id/lostTxt"
+            app:layout_constraintTop_toTopOf="@+id/lostTxt" />
+
+        <TextView
+            android:id="@+id/pointsTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@{tableItem.points.toString()}"
+            android:fontFamily="@font/urbanistfont"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/goalsTxt"
+            app:layout_constraintStart_toEndOf="@+id/goalsTxt"
+            app:layout_constraintTop_toTopOf="@+id/goalsTxt" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
+</layout>

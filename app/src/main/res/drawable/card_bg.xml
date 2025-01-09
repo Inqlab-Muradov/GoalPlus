@@ -1,0 +1,17 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/materialcard_bg"/>
+
+    <item>
+        <shape xmlns:android="http://schemas.android.com/apk/res/android">
+            <stroke
+                android:width="6dp"
+                android:color="@android:color/transparent"/> <!-- Şeffaf renk arka planda görünmemesi için -->
+            <gradient
+                android:startColor="@color/darkMode"
+                android:endColor="@color/darkMode"
+                android:angle="0" />
+            <corners android:radius="8dp"/>
+        </shape>
+    </item>
+</layer-list>

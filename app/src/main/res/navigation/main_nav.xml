@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.goalplus.presentation.ui.splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_startedFragment"
+            app:destination="@id/startedFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/startedFragment"
+        android:name="com.example.goalplus.presentation.ui.started.StartedFragment"
+        android:label="fragment_started"
+        tools:layout="@layout/fragment_started" >
+        <action
+            android:id="@+id/action_startedFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.goalplus.presentation.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_matchesFragment"
+            app:destination="@id/matchesFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/matchesFragment"
+        android:name="com.example.goalplus.presentation.ui.matches.MatchesFragment"
+        android:label="fragment_matches"
+        tools:layout="@layout/fragment_matches" >
+        <argument
+            android:name="code"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_matchesFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/matchesFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

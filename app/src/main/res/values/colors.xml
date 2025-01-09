@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="logoBg">#8aca3b</color>
+    <color name="startedTxt">#222232</color>
+    <color name="mediumAquamarine">#41cab5</color>
+    <color name="tableGreen">#23AE00</color>
+    <color name="tableBlue">#56C2FF</color>
+    <color  name="tableRed">#FD1818</color>
+    <color  name="tableOrange">#FFB052</color>
+    <color name="darkMode">#181a20</color>
+
+</resources>
