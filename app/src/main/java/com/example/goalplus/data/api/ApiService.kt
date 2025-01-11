@@ -12,16 +12,18 @@ import retrofit2.http.Path
 interface ApiService {
     @GET("competitions")
     suspend fun getCompetitions(
-        @Header("X-Auth-Token") token: String = API_KEY
+//        @Header("X-Auth-Token") token: String = API_KEY
     ): Response<CompetitionsDto>
 
     @GET("competitions/{code}/matches")
     suspend fun getMatches(
-        @Header("X-Auth-Token") token: String = API_KEY, @Path("code") code: String
+//        @Header("X-Auth-Token") token: String = API_KEY,
+        @Path("code") code: String
     ): Response<MatchesDto>
 
     @GET("competitions/{code}/standings")
     suspend fun getMatchesTable(
-        @Header("X-Auth-Token") token: String = API_KEY, @Path("code") code: String
+//        @Header("X-Auth-Token") token: String = API_KEY,
+        @Path("code") code: String
     ): Response<MatchesTableDto>
 }

@@ -11,6 +11,7 @@ class CompetitionsAdapter:RecyclerView.Adapter<CompetitionsAdapter.CompetitionsV
     private val competitionsList= ArrayList<CompetitionModel>()
     lateinit var onClick :(String)->Unit
 
+
     inner class CompetitionsViewHolder(val binding:CompetitonsItemBinding):RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CompetitionsViewHolder {

@@ -13,7 +13,7 @@ class RemoteDataSourceImpl @Inject constructor(
 ):RemoteDataSource {
     override suspend fun getCompetitions(): NetworkResponseState<CompetitionsDto> {
         return try {
-            val response = api.getCompetitions(API_KEY).body()
+            val response = api.getCompetitions().body()
             NetworkResponseState.Success(response)
         }catch (e:Exception){
             NetworkResponseState.Error(e)
@@ -22,7 +22,7 @@ class RemoteDataSourceImpl @Inject constructor(
 
     override suspend fun getMatches(code:String): NetworkResponseState<MatchesDto> {
         return try {
-            val response = api.getMatches(API_KEY,code).body()
+            val response = api.getMatches(code).body()
             NetworkResponseState.Success(response)
         }catch (e:Exception){
             NetworkResponseState.Error(e)
@@ -31,7 +31,7 @@ class RemoteDataSourceImpl @Inject constructor(
 
     override suspend fun getMatchesTable(code: String): NetworkResponseState<MatchesTableDto> {
         return try {
-            val response = api.getMatchesTable(API_KEY,code).body()
+            val response = api.getMatchesTable(code).body()
             NetworkResponseState.Success(response)
         }catch (e:Exception){
             return NetworkResponseState.Error(e)
